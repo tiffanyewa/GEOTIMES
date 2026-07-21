@@ -1,0 +1,33 @@
+name: Daily articles
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Fetch & summarise new articles
+        run: node tools/fetch-articles.mjs
+        env:
+          OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: claude-3-5-haiku-latest
+          MAX_NEW: "4"
+          ARTICLE_CAP: "60"
+      - name: Commit changes
+        run: |
+          git config user.name "geo-times-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add articles.json
+          git diff --staged --quiet || git commit -m "Daily article update ($(date -u +%F))"
+          git push
