@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e8e6e1; }
+  *::-webkit-scrollbar { width:0; height:0; }
+  a { color:inherit; text-decoration:none; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:var(--bg); font-family:'Archivo',system-ui,sans-serif; {{ themeVars }}">
+  <div style="max-width:1000px; margin:0 auto; position:relative;">
+    <div style="min-height:100vh; background:var(--bg); position:relative;">
+
+      <!-- ============ HOME ============ -->
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div style="">
+        <div style="padding:6px 18px 0; flex:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font:800 23px/1 'Archivo',sans-serif; color:var(--ink); letter-spacing:-0.02em;">GEO<span style="color:var(--accent);">TIMES</span></div>
+            <div style="width:28px; height:28px; border-radius:50%; background:var(--avatar);"></div>
+          </div>
+          <div style="display:flex; gap:7px; margin-top:13px; overflow-x:auto; font:700 11px/1 'Archivo',sans-serif;">
+            <span onClick="{{ goHome }}" style="background:var(--accent); color:var(--onAccent); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap;">TOP</span>
+            <span onClick="{{ openQuakes }}" style="background:var(--surface); color:var(--surfaceText); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:6px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;"></span>QUAKES</span>
+            <span onClick="{{ openSeismic }}" style="background:var(--surface); color:var(--surfaceText); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap;">SEISMIC</span>
+            <span onClick="{{ openMarine }}" style="background:var(--surface); color:var(--surfaceText); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap;">MARINE</span>
+            <span onClick="{{ openTectonics }}" style="background:var(--surface); color:var(--surfaceText); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap;">TECTONICS</span>
+            <span onClick="{{ openEnergy }}" style="background:var(--surface); color:var(--surfaceText); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap;">ENERGY</span>
+            <span onClick="{{ openML }}" style="background:var(--surface); color:var(--surfaceText); padding:8px 12px; border-radius:20px; cursor:pointer; white-space:nowrap;">AI &amp; ML</span>
+          </div>
+        </div>
+        <div style="padding-top:13px;">
+          <!-- hero -->
+          <div onClick="{{ openHero }}" style="display:block; margin:0 15px 14px; border-radius:13px; overflow:hidden; position:relative; height:40vh; min-height:260px; max-height:440px; background:{{ hero.bg }}; cursor:pointer;">
+            <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(15,12,8,.88) 0%,rgba(15,12,8,.18) 55%,transparent 100%);"></div>
+            <span style="position:absolute; top:13px; left:13px; font:700 10px/1 'Archivo',sans-serif; letter-spacing:.06em; background:var(--accent); color:var(--onAccent); padding:6px 9px; border-radius:4px;">{{ hero.kicker }}</span>
+            <span style="position:absolute; top:13px; right:13px; font:500 9px/1 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#ffffffcc; background:#0000004d; padding:5px 7px; border-radius:4px;">{{ hero.img }}</span>
+            <div style="position:absolute; left:15px; right:15px; bottom:15px;">
+              <h2 style="margin:0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:24px; line-height:1.06; color:#fff; letter-spacing:-0.015em; text-wrap:pretty;">{{ hero.title }}</h2>
+              <div style="margin-top:9px; font:600 11px/1 'Archivo',sans-serif; color:#ffffffcc;">{{ hero.meta }}</div>
+            </div>
+          </div>
+          <!-- rest -->
+          <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:0 26px; padding:0 6px;">
+          <sc-for list="{{ rest }}" as="s" hint-placeholder-count="4">
+            <div onClick="{{ s.open }}" style="display:flex; gap:13px; padding:14px 10px; border-bottom:1px solid var(--line); cursor:pointer;">
+              <div style="width:100px; height:76px; border-radius:9px; flex:none; background:{{ s.bg }};"></div>
+              <div style="flex:1;">
+                <div style="font:700 10px/1 'Archivo',sans-serif; letter-spacing:.05em; color:var(--accent);">{{ s.kicker }}</div>
+                <h3 style="margin:6px 0 0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:15.5px; line-height:1.16; color:var(--ink); letter-spacing:-0.01em; text-wrap:pretty;">{{ s.title }}</h3>
+                <div style="margin-top:7px; font:600 10px/1 'Archivo',sans-serif; color:var(--muted);">{{ s.meta }}</div>
+              </div>
+            </div>
+          </sc-for>
+          </div>
+          <div style="height:14px;"></div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ CATEGORY ============ -->
+      <sc-if value="{{ isCategory }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:6px 18px 14px; border-bottom:1px solid var(--line); flex:none;">
+          <div onClick="{{ goHome }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer; display:inline-block;">‹ GEOTIMES</div>
+          <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:30px; line-height:1; color:var(--ink); letter-spacing:-0.02em; margin-top:12px;">{{ catName }}</div>
+          <div style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.12em; color:var(--muted); margin-top:9px;">{{ catCount }} STORIES</div>
+        </div>
+        <div style="">
+          <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:0 26px; padding:0 6px;">
+          <sc-for list="{{ catStories }}" as="s" hint-placeholder-count="3">
+            <div onClick="{{ s.open }}" style="display:flex; gap:13px; padding:14px 10px; border-bottom:1px solid var(--line); cursor:pointer;">
+              <div style="width:100px; height:76px; border-radius:9px; flex:none; background:{{ s.bg }};"></div>
+              <div style="flex:1;">
+                <div style="font:700 10px/1 'Archivo',sans-serif; letter-spacing:.05em; color:var(--accent);">{{ s.kicker }}</div>
+                <h3 style="margin:6px 0 0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:15.5px; line-height:1.16; color:var(--ink); letter-spacing:-0.01em; text-wrap:pretty;">{{ s.title }}</h3>
+                <div style="margin-top:7px; font:600 10px/1 'Archivo',sans-serif; color:var(--muted);">{{ s.meta }}</div>
+              </div>
+            </div>
+          </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ QUAKES ============ -->
+      <sc-if value="{{ isQuakes }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:6px 18px 14px; border-bottom:1px solid var(--line); flex:none;">
+          <div onClick="{{ goHome }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer; display:inline-block;">‹ GEOTIMES</div>
+          <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:30px; line-height:1; color:var(--ink); letter-spacing:-0.02em; margin-top:12px;">Newest Quakes</div>
+          <div style="display:flex; align-items:center; gap:7px; margin-top:10px;">
+            <span style="width:7px; height:7px; border-radius:50%; background:var(--accent); display:inline-block;"></span>
+            <span style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.12em; color:var(--muted);">{{ quakeSubtitle }}</span>
+          </div>
+        </div>
+        <div style="">
+          <div style="padding:16px 18px 6px; font:700 11px/1 'Archivo',sans-serif; letter-spacing:.06em; color:var(--accent);">WORLDWIDE — TOP 5 · LAST 24H</div>
+          <sc-for list="{{ quakesWorld }}" as="q" hint-placeholder-count="5">
+            <div style="display:flex; align-items:center; gap:14px; padding:12px 18px; border-top:1px solid var(--line);">
+              <div style="width:56px; height:56px; border-radius:11px; flex:none; background:var(--accent); color:var(--onAccent); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                <span style="font:500 8px/1 'Archivo',sans-serif; opacity:.8;">MAG</span>
+                <span style="font:800 20px/1 'Archivo',sans-serif; margin-top:2px;">{{ q.mag }}</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font:700 15px/1.2 'Archivo',sans-serif; color:var(--ink); letter-spacing:-0.01em;">{{ q.place }}</div>
+                <div style="margin-top:5px; font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.04em; color:var(--muted);">{{ q.meta }}</div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="padding:20px 18px 6px; font:700 11px/1 'Archivo',sans-serif; letter-spacing:.06em; color:var(--accent); border-top:6px solid var(--surface);">NORWAY & ARCTIC — RECENT TOP 3</div>
+          <sc-for list="{{ quakesNorway }}" as="q" hint-placeholder-count="3">
+            <div style="display:flex; align-items:center; gap:14px; padding:12px 18px; border-top:1px solid var(--line);">
+              <div style="width:56px; height:56px; border-radius:11px; flex:none; background:var(--surface); border:1.5px solid var(--accent); color:var(--accent); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                <span style="font:500 8px/1 'Archivo',sans-serif; opacity:.85;">MAG</span>
+                <span style="font:800 20px/1 'Archivo',sans-serif; margin-top:2px;">{{ q.mag }}</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font:700 15px/1.2 'Archivo',sans-serif; color:var(--ink); letter-spacing:-0.01em;">{{ q.place }}</div>
+                <div style="margin-top:5px; font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.04em; color:var(--muted);">{{ q.meta }}</div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="padding:16px 18px 22px; font:400 11px/1.5 'Archivo',sans-serif; color:var(--muted);">Live data: worldwide from USGS (last 24h), Norway &amp; Arctic from EMSC (recent). Falls back to sample data if a feed is unreachable.</div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ TOPICS ============ -->
+      <sc-if value="{{ isTopics }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:6px 18px 14px; border-bottom:1px solid var(--line); flex:none;">
+          <div onClick="{{ goHome }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer; display:inline-block;">‹ GEOTIMES</div>
+          <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:30px; line-height:1; color:var(--ink); letter-spacing:-0.02em; margin-top:12px;">Topics</div>
+          <div style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.12em; color:var(--muted); margin-top:9px;">BROWSE BY FIELD</div>
+        </div>
+        <div style="">
+          <sc-for list="{{ topics }}" as="t" hint-placeholder-count="6">
+            <div onClick="{{ t.open }}" style="display:flex; align-items:center; gap:14px; padding:16px 18px; border-bottom:1px solid var(--line); cursor:pointer;">
+              <div style="flex:1;">
+                <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:18px; line-height:1.1; color:var(--ink); letter-spacing:-0.01em;">{{ t.label }}</div>
+                <div style="margin-top:5px; font:500 12px/1.3 'Archivo',sans-serif; color:var(--muted2);">{{ t.desc }}</div>
+              </div>
+              <div style="font:600 11px/1 'IBM Plex Mono',monospace; letter-spacing:.06em; color:var(--muted); white-space:nowrap;">{{ t.count }}</div>
+              <div style="font:700 16px/1 'Archivo',sans-serif; color:var(--accent);">›</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ SEARCH ============ -->
+      <sc-if value="{{ isSearch }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:6px 18px 14px; border-bottom:1px solid var(--line); flex:none;">
+          <div onClick="{{ goHome }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer; display:inline-block;">‹ GEOTIMES</div>
+          <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:30px; line-height:1; color:var(--ink); letter-spacing:-0.02em; margin:12px 0 14px;">Search</div>
+          <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Search articles, topics, authors…" style="width:100%; box-sizing:border-box; padding:13px 15px; border:1.5px solid var(--line); border-radius:11px; background:var(--surface); color:var(--ink); font:500 14px/1 'Archivo',sans-serif; outline:none;" />
+        </div>
+        <div style="">
+          <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:14px 18px 4px; font:600 11px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; color:var(--muted);">{{ resultCount }}</div>
+            <sc-for list="{{ results }}" as="s" hint-placeholder-count="3">
+              <div onClick="{{ s.open }}" style="display:flex; gap:13px; padding:13px 16px; border-top:1px solid var(--line); cursor:pointer;">
+                <div style="width:100px; height:76px; border-radius:9px; flex:none; background:{{ s.bg }};"></div>
+                <div style="flex:1;">
+                  <div style="font:700 10px/1 'Archivo',sans-serif; letter-spacing:.05em; color:var(--accent);">{{ s.kicker }}</div>
+                  <h3 style="margin:6px 0 0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:15.5px; line-height:1.16; color:var(--ink); letter-spacing:-0.01em; text-wrap:pretty;">{{ s.title }}</h3>
+                  <div style="margin-top:7px; font:600 10px/1 'Archivo',sans-serif; color:var(--muted);">{{ s.meta }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </sc-if>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:40px 24px; text-align:center;">
+              <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:19px; color:var(--ink);">No matches</div>
+              <div style="margin-top:8px; font:500 13px/1.5 'Archivo',sans-serif; color:var(--muted2);">Nothing found for "{{ query }}". Try a broader term like seismic, CO₂, or ocean.</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ noQuery }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:20px 18px;">
+              <div style="font:600 11px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; color:var(--muted);">TRY SEARCHING</div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:13px;">
+                <sc-for list="{{ suggestions }}" as="w" hint-placeholder-count="6">
+                  <span onClick="{{ w.pick }}" style="font:600 12px/1 'Archivo',sans-serif; color:var(--surfaceText); background:var(--surface); padding:9px 13px; border-radius:20px; cursor:pointer;">{{ w.label }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ SAVED ============ -->
+      <sc-if value="{{ isSaved }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:6px 18px 14px; border-bottom:1px solid var(--line); flex:none;">
+          <div onClick="{{ goHome }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer; display:inline-block;">‹ GEOTIMES</div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:12px;">
+            <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:30px; line-height:1; color:var(--ink); letter-spacing:-0.02em;">Saved</div>
+            <span onClick="{{ newFolder }}" style="font:700 11px/1 'Archivo',sans-serif; color:var(--accent); background:var(--surface); padding:9px 13px; border-radius:20px; cursor:pointer;">＋ New folder</span>
+          </div>
+        </div>
+        <div style="">
+          <sc-if value="{{ noSaved }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:44px 26px; text-align:center;">
+              <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:19px; color:var(--ink);">Nothing saved yet</div>
+              <div style="margin-top:8px; font:500 13px/1.5 'Archivo',sans-serif; color:var(--muted2);">Tap Save on any article, then organize your reading into folders here.</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hasFolders }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:15px 18px 4px; font:600 11px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; color:var(--muted);">FOLDERS</div>
+            <sc-for list="{{ foldersView }}" as="f" hint-placeholder-count="2">
+              <div onClick="{{ f.open }}" style="display:flex; align-items:center; gap:13px; padding:14px 18px; border-top:1px solid var(--line); cursor:pointer;">
+                <div style="width:38px; height:30px; border-radius:5px; border:1.5px solid var(--accent); flex:none; position:relative;"><span style="position:absolute; top:-5px; left:5px; width:14px; height:5px; background:var(--accent); border-radius:2px 2px 0 0;"></span></div>
+                <div style="flex:1; font-family:var(--hFont); font-weight:var(--hWeight); font-size:16px; color:var(--ink); letter-spacing:-0.01em;">{{ f.name }}</div>
+                <div style="font:600 11px/1 'IBM Plex Mono',monospace; color:var(--muted);">{{ f.count }}</div>
+                <div style="font:700 16px/1 'Archivo',sans-serif; color:var(--accent);">›</div>
+              </div>
+            </sc-for>
+          </sc-if>
+          <sc-if value="{{ hasLoose }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:18px 18px 4px; font:600 11px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; color:var(--muted);">SAVED ARTICLES</div>
+            <sc-for list="{{ savedLoose }}" as="s" hint-placeholder-count="2">
+              <div style="padding:13px 16px; border-top:1px solid var(--line);">
+                <div onClick="{{ s.open }}" style="display:flex; gap:13px; cursor:pointer;">
+                  <div style="width:100px; height:76px; border-radius:9px; flex:none; background:{{ s.bg }};"></div>
+                  <div style="flex:1;">
+                    <div style="font:700 10px/1 'Archivo',sans-serif; letter-spacing:.05em; color:var(--accent);">{{ s.kicker }}</div>
+                    <h3 style="margin:6px 0 0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:15.5px; line-height:1.16; color:var(--ink); letter-spacing:-0.01em; text-wrap:pretty;">{{ s.title }}</h3>
+                    <div style="margin-top:7px; font:600 10px/1 'Archivo',sans-serif; color:var(--muted);">{{ s.meta }}</div>
+                  </div>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:10px;">
+                  <span onClick="{{ s.move }}" style="font:600 11px/1 'Archivo',sans-serif; color:var(--surfaceText); background:var(--surface); padding:8px 12px; border-radius:20px; cursor:pointer;">Move to folder ▾</span>
+                  <span onClick="{{ s.unsave }}" style="font:600 11px/1 'Archivo',sans-serif; color:var(--muted); padding:8px 6px; cursor:pointer;">Remove</span>
+                </div>
+              </div>
+            </sc-for>
+          </sc-if>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ FOLDER ============ -->
+      <sc-if value="{{ isFolder }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:6px 18px 14px; border-bottom:1px solid var(--line); flex:none;">
+          <div onClick="{{ goSaved }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer; display:inline-block;">‹ SAVED</div>
+          <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:30px; line-height:1.05; color:var(--ink); letter-spacing:-0.02em; margin-top:12px;">{{ curFolderName }}</div>
+          <div style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.12em; color:var(--muted); margin-top:9px;">{{ folderCount }}</div>
+        </div>
+        <div style="">
+          <sc-for list="{{ folderArticles }}" as="s" hint-placeholder-count="2">
+            <div style="padding:13px 16px; border-bottom:1px solid var(--line);">
+              <div onClick="{{ s.open }}" style="display:flex; gap:13px; cursor:pointer;">
+                <div style="width:100px; height:76px; border-radius:9px; flex:none; background:{{ s.bg }};"></div>
+                <div style="flex:1;">
+                  <div style="font:700 10px/1 'Archivo',sans-serif; letter-spacing:.05em; color:var(--accent);">{{ s.kicker }}</div>
+                  <h3 style="margin:6px 0 0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:15.5px; line-height:1.16; color:var(--ink); letter-spacing:-0.01em; text-wrap:pretty;">{{ s.title }}</h3>
+                  <div style="margin-top:7px; font:600 10px/1 'Archivo',sans-serif; color:var(--muted);">{{ s.meta }}</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px; margin-top:10px;">
+                <span onClick="{{ s.removeFromFolder }}" style="font:600 11px/1 'Archivo',sans-serif; color:var(--surfaceText); background:var(--surface); padding:8px 12px; border-radius:20px; cursor:pointer;">Remove from folder</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ ARTICLE ============ -->
+      <sc-if value="{{ isArticle }}" hint-placeholder-val="{{ false }}">
+      <div style="">
+        <div style="padding:4px 18px 10px; flex:none; display:flex; justify-content:space-between; align-items:center;">
+          <div onClick="{{ goBack }}" style="font:700 12px/1 'Archivo',sans-serif; color:var(--accent); cursor:pointer;">‹ BACK</div>
+          <div style="display:flex; gap:14px; font:700 11px/1 'Archivo',sans-serif; color:var(--muted);"><span onClick="{{ toggleSaveArticle }}" style="color:{{ saveColor }}; cursor:pointer;">{{ saveLabel }}</span><span style="cursor:pointer;">SHARE</span></div>
+        </div>
+        <div style="">
+          <div style="height:210px; margin:0 0 0; position:relative; background:{{ article.bg }}; display:flex; align-items:flex-end; padding:12px;">
+            <span style="font:500 9px/1 'IBM Plex Mono',monospace; letter-spacing:.12em; color:var(--label); background:var(--chipBg); padding:5px 8px; border-radius:4px;">{{ article.img }}</span>
+          </div>
+          <sc-if value="{{ articleHasCredit }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:8px 20px 0; font:400 10.5px/1.45 'Archivo',sans-serif; color:var(--muted);">{{ article.credit }}</div>
+          </sc-if>
+          <div style="padding:20px 20px 28px; max-width:720px; margin:0 auto;">
+            <div style="font:700 10px/1 'Archivo',sans-serif; letter-spacing:.08em; color:var(--accent);">{{ article.kicker }}</div>
+            <h1 style="margin:11px 0 0; font-family:var(--hFont); font-weight:var(--hWeight); font-size:27px; line-height:1.1; color:var(--ink); letter-spacing:-0.02em; text-wrap:pretty;">{{ article.title }}</h1>
+            <p style="margin:13px 0 0; font:500 15px/1.5 'Archivo',sans-serif; color:var(--muted2); text-wrap:pretty;">{{ article.lead }}</p>
+            <div style="display:flex; align-items:center; gap:10px; margin:16px 0 4px; padding-bottom:16px; border-bottom:1px solid var(--line);">
+              <div style="width:34px; height:34px; border-radius:50%; background:var(--avatar); flex:none;"></div>
+              <div style="font:600 11px/1.4 'Archivo',sans-serif; color:var(--surfaceText);">{{ article.byline }}<br><span style="color:var(--muted); font-weight:500;">{{ article.meta }}</span></div>
+            </div>
+            <sc-for list="{{ article.body }}" as="para" hint-placeholder-count="3">
+              <p style="margin:16px 0 0; font:400 15.5px/1.62 'Archivo',sans-serif; color:var(--body); text-wrap:pretty;">{{ para }}</p>
+            </sc-for>
+            <div style="margin:22px 0 6px; padding:2px 0 2px 18px; border-left:3px solid var(--accent);">
+              <p style="margin:0; font-family:var(--hFont); font-weight:600; font-size:19px; line-height:1.35; color:var(--ink); text-wrap:pretty;">{{ article.quote }}</p>
+              <div style="margin-top:9px; font:600 11px/1 'Archivo',sans-serif; color:var(--accent);">{{ article.quoteBy }}</div>
+            </div>
+            <sc-for list="{{ article.tail }}" as="para" hint-placeholder-count="1">
+              <p style="margin:16px 0 0; font:400 15.5px/1.62 'Archivo',sans-serif; color:var(--body); text-wrap:pretty;">{{ para }}</p>
+            </sc-for>
+            <div style="margin-top:26px; display:flex; flex-wrap:wrap; gap:8px;">
+              <span style="font:700 10px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; color:var(--label); text-transform:uppercase;">Topics ·</span>
+              <sc-for list="{{ article.tags }}" as="t" hint-placeholder-count="3">
+                <span style="font:600 11px/1 'Archivo',sans-serif; color:var(--surfaceText); background:var(--surface); padding:7px 11px; border-radius:20px;">{{ t }}</span>
+              </sc-for>
+            </div>
+            <div style="margin-top:24px; padding-top:18px; border-top:1px solid var(--line);">
+              <div style="font:700 10px/1 'IBM Plex Mono',monospace; letter-spacing:.14em; color:var(--label);">SOURCE</div>
+              <a href="{{ article.sourceUrl }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font:700 13px/1.4 'Archivo',sans-serif; color:var(--accent); text-wrap:pretty;">{{ article.sourceLabel }} ↗</a>
+              <div style="margin-top:10px; font:400 11px/1.55 'Archivo',sans-serif; color:var(--muted);">Original summary written for The New Geo Times. Findings are attributed to the linked source; no text is reproduced from it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ TAB BAR ============ -->
+      <div style="position:sticky; bottom:0; z-index:10; display:flex; justify-content:space-around; padding:13px 0 20px; border-top:1px solid var(--line); background:var(--bg); font:700 11px/1 'Archivo',sans-serif;">
+        <span onClick="{{ goHome }}" style="cursor:pointer; color:{{ homeColor }};">HOME</span>
+        <span onClick="{{ openTopics }}" style="cursor:pointer; color:{{ topicsColor }};">TOPICS</span>
+        <span onClick="{{ openSearch }}" style="cursor:pointer; color:{{ searchColor }};">SEARCH</span>
+        <span onClick="{{ openSaved }}" style="cursor:pointer; color:{{ savedColor }};">SAVED</span>
+      </div>
+
+      <!-- ============ MOVE SHEET ============ -->
+      <sc-if value="{{ showMove }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ cancelMove }}" style="position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:20;"></div>
+      <div style="position:fixed; left:50%; transform:translateX(-50%); width:100%; max-width:1000px; bottom:0; z-index:21; background:var(--bg); border-top:1px solid var(--line); border-radius:22px 22px 0 0; padding:20px 18px 30px; box-shadow:0 -20px 40px -20px rgba(0,0,0,.4);">
+        <div style="font-family:var(--hFont); font-weight:var(--hWeight); font-size:19px; color:var(--ink); letter-spacing:-0.01em;">Move to folder</div>
+        <sc-if value="{{ moveHasFolders }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px; display:flex; flex-direction:column; gap:2px;">
+            <sc-for list="{{ moveFolders }}" as="f" hint-placeholder-count="2">
+              <span onClick="{{ f.pick }}" style="display:flex; align-items:center; gap:11px; padding:13px 4px; border-bottom:1px solid var(--line); cursor:pointer; font:600 14px/1 'Archivo',sans-serif; color:var(--ink);"><span style="width:26px; height:20px; border-radius:4px; border:1.5px solid var(--accent); flex:none;"></span>{{ f.name }}</span>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="display:flex; flex-direction:column; gap:2px; margin-top:6px;">
+          <span onClick="{{ newFolderMove }}" style="padding:13px 4px; cursor:pointer; font:700 14px/1 'Archivo',sans-serif; color:var(--accent);">＋ New folder…</span>
+          <span onClick="{{ keepLoose }}" style="padding:13px 4px; cursor:pointer; font:600 14px/1 'Archivo',sans-serif; color:var(--surfaceText);">Keep in Saved (no folder)</span>
+          <span onClick="{{ cancelMove }}" style="padding:13px 4px; cursor:pointer; font:600 14px/1 'Archivo',sans-serif; color:var(--muted);">Cancel</span>
+        </div>
+      </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Warm Print&quot;,&quot;options&quot;:[&quot;Warm Print&quot;,&quot;Paper White&quot;,&quot;Deep Night&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look &amp; feel&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#9e2a2b&quot;,&quot;options&quot;:[&quot;#9e2a2b&quot;,&quot;#232323&quot;,&quot;#1f5c46&quot;,&quot;#1f4f7a&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look &amp; feel&quot;},&quot;headline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Bold Grotesk&quot;,&quot;options&quot;:[&quot;Bold Grotesk&quot;,&quot;Editorial Serif&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look &amp; feel&quot;}}">
+const STORIES = [
+  {
+    id: "carbon", cat: "Energy", kicker: "CARBON STORAGE", img: "SEISMIC PLUME MAP",
+    title: "Watching Carbon Vanish Beneath the North Sea",
+    meta: "SINTEF · 21 JUL 2026", byline: "By Marit Halvorsen", metaLong: "Applied Geoscience · 21 Jul 2026",
+    lead: "A full-waveform imaging method now lets researchers track injected CO\u2082 plumes at the Sleipner field almost as fast as they spread.",
+    body: [
+      "Every summer since the late 1990s, Norway has quietly returned carbon dioxide to where much of it came from \u2014 nearly a kilometre beneath the floor of the North Sea. At the Sleipner field, on the order of a million tonnes a year are pressed into a thick, briny sandstone, making it one of the first places on Earth where storing carbon at industrial scale was ever attempted.",
+      "The hard part was never the pumping. It was knowing where the gas went afterward. For years, engineers leaned on repeat seismic surveys shot at intervals of several years, comparing coarse snapshots to guess how the buoyant CO\u2082 had spread and where it pooled under the caprock seals meant to keep it locked away.",
+      "The newer approach reconstructs the subsurface from the full shape of returning sound waves rather than a handful of sharp reflections. Where older processing saw a smudge, the reconstruction resolves layers of CO\u2082 only a few metres thick and tracks how they thicken and migrate between surveys.",
+      "That matters because the whole premise of geological storage rests on confidence. Regulators, operators and the public all need to trust that the gas stays put, and a method that follows the plume at close to the pace the reservoir itself moves turns monitoring from an occasional audit into something closer to a continuous readout."
+    ],
+    quote: "For the first time we can watch the plume move at the speed the reservoir actually moves.",
+    quoteBy: "\u2014 Lead author, SINTEF Industry",
+    tail: [
+      "The same imaging is now being tested for a subtler task: flagging well-integrity problems early, catching the faint signature of gas creeping up an old borehole long before it could ever reach the seabed.",
+      "If it holds up across more sites, the technique could lower the cost of the monitoring every storage project is legally required to run \u2014 one of the quiet economic barriers to scaling carbon storage up."
+    ],
+    tags: ["CO\u2082 storage", "Full-waveform inversion", "Sleipner"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sleipner%20oil%20field.jpg", credit: "Photo: Sleipner platform, North Sea \u2014 Wikimedia Commons",
+    sourceLabel: "SINTEF \u00b7 Research news (open access)",
+    sourceUrl: "https://www.sintef.no/en/latest-news/2025/our-innovation-makes-it-safer-to-store-co-in-the-subsurface/"
+  },
+  {
+    id: "array", cat: "Seismic", kicker: "SEISMOLOGY", img: "INFRASOUND ARRAY",
+    title: "The Array That Heard an Earthquake Before It Arrived",
+    meta: "NOSAR · 19 JUL 2026", byline: "By Eirik Sund", metaLong: "Seismology desk · 19 Jul 2026",
+    lead: "A dense array in southern Norway picked up the low rumble of ground shaking through the air \u2014 an acoustic echo of the rupture that travels independently of the seismic waves themselves.",
+    body: [
+      "Sound below the threshold of human hearing, called infrasound, can travel through the atmosphere for hundreds of kilometres. When the ground heaves during an earthquake it presses on the air above it, and that push carries a faint acoustic fingerprint of the rupture upward and outward.",
+      "Pulling that whisper out of the wind takes a wall of closely spaced sensors. By beam-forming across the array \u2014 lining up the signal that arrives at each element with a slight delay \u2014 analysts can both confirm a detection and point back toward where it came from. The technique was refined for decades to catch clandestine explosions under the international test-ban regime.",
+      "What is new is using that same skill to read natural ground motion. Because the atmospheric signal follows a different path than the seismic waves in the rock, it offers an independent check on an event \u2014 and in some geometries it registers the shaking from directions a sparse seismic network would struggle to constrain.",
+      "The catch is the weather: wind and shifting temperatures in the upper atmosphere bend infrasound in ways that are hard to predict, so quiet, well-sited arrays with good noise shielding still matter enormously."
+    ],
+    quote: "The atmosphere becomes a second seismograph, one that never touches the ground.",
+    quoteBy: "\u2014 Array operations lead",
+    tail: [
+      "The same sensors that listen for treaty violations, it turns out, double as an early read on natural hazards \u2014 from rockslides and avalanches to distant volcanic unrest."
+    ],
+    tags: ["Infrasound", "Beamforming", "Monitoring"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kinemetrics%20seismograph.jpg", credit: "Photo: Kinemetrics seismograph \u2014 Wikimedia Commons (CC BY-SA 3.0)",
+    sourceLabel: "Nature \u00b7 Communications Earth & Environment (open access, CC-BY)",
+    sourceUrl: "https://www.nature.com/articles/s43247-023-01058-z"
+  },
+  {
+    id: "ocean", cat: "Marine", kicker: "MARINE GEOPHYSICS", img: "SEAFLOOR FIBER",
+    title: "The Ocean Floor Is Now a Giant Microphone",
+    meta: "NATURE · 17 JUL 2026", byline: "By Johanna Rist", metaLong: "Marine desk · 17 Jul 2026",
+    lead: "By firing laser pulses down a single fibre-optic cable, researchers can turn kilometres of seabed into thousands of vibration sensors.",
+    body: [
+      "Distributed acoustic sensing, or DAS, treats an ordinary optical fibre as a long chain of listening posts. A laser sends pulses down the glass, and tiny natural imperfections scatter a little light back. When a passing seismic wave stretches or squeezes a section of fibre, that backscatter shifts in a measurable way.",
+      "Sample the returning light fast enough and every few metres of cable becomes its own seismometer. A single fibre can suddenly stand in for thousands of instruments, at a spacing no fleet of buoys or ocean-bottom nodes could ever match.",
+      "Laid across the seabed, such a cable registers earthquakes, ocean currents, ship traffic and even the calls of passing whales \u2014 in stretches of ocean where deploying and maintaining individual instruments would be prohibitively expensive.",
+      "The method has real limits: it needs a cable in the first place, it is most sensitive to motion along the fibre, and the flood of data is enormous. But the economics are hard to argue with, especially where telecom cable already lies on the bottom."
+    ],
+    quote: "We lit up a cable and suddenly had ten thousand seismometers on the ocean floor.",
+    quoteBy: "\u2014 Co-author, marine geophysics group",
+    tail: [
+      "The next step is dark fibre \u2014 unused strands in existing subsea telecom cables \u2014 which could wire long stretches of coastline for a fraction of the usual cost."
+    ],
+    tags: ["DAS", "Fibre optics", "Ocean"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fiber%20Optical%20Cable.jpg", credit: "Photo: fibre-optic cable \u2014 Wikimedia Commons (CC0)",
+    sourceLabel: "Nature \u00b7 Earth & environmental sciences",
+    sourceUrl: "https://www.nature.com/subjects/seismology"
+  },
+  {
+    id: "uplift", cat: "Tectonics", kicker: "TECTONICS", img: "GPS UPLIFT MAP",
+    title: "Scandinavia Is Still Rising From the Last Ice Age",
+    meta: "GEOPHYS. J. INT. · 14 JUL 2026", byline: "By Anders Lie", metaLong: "Tectonics desk · 14 Jul 2026",
+    lead: "Freed from the weight of vanished glaciers, the crust beneath the Nordic countries is still springing back \u2014 by close to a centimetre a year in places.",
+    body: [
+      "When the great ice sheets melted more than ten thousand years ago, the land they had pressed down began a slow rebound that has never stopped. Geophysicists call it glacial isostatic adjustment, and Scandinavia is its textbook example.",
+      "Networks of permanent satellite-positioning stations now measure that rise in fine detail. Around the head of the Gulf of Bothnia the land climbs fastest \u2014 on the order of a centimetre each year \u2014 tapering off toward the edges of the once-glaciated region.",
+      "The uplift quietly reshapes the map. Harbours grow shallow, new skerries break the surface, and rivers nudge their courses. In parts of the Nordic coast the land is rising faster than the sea, so the shoreline is retreating even as oceans warm.",
+      "Teasing this ancient rebound apart from modern, climate-driven sea-level rise is now essential work: it decides which stretches of coast will flood in the coming century and which will keep climbing out of the water."
+    ],
+    quote: "The last ice age is still being written into the map, one millimetre at a time.",
+    quoteBy: "\u2014 Geodesy researcher",
+    tail: [
+      "The same measurements feed into everything from tide-gauge corrections to the reference frames that keep national maps and GPS in agreement."
+    ],
+    tags: ["Post-glacial rebound", "Geodesy", "GNSS"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Skerries%20and%20islets%20on%20Hovdanvika%20in%20Flakstad%2C%20Nordland%2C%20Norway%2C%202022%20June.jpg", credit: "Photo: skerries in Nordland, Norway \u2014 Wikimedia Commons (CC BY-SA 4.0)",
+    sourceLabel: "Geophysical Journal International (Oxford Academic)",
+    sourceUrl: "https://academic.oup.com/gji"
+  },
+  {
+    id: "cables", cat: "Energy", kicker: "EXPLORATION", img: "DAS CABLE",
+    title: "Old Telecom Cables Are Becoming Earthquake Sensors",
+    meta: "SCIENCEDIRECT · 12 JUL 2026", byline: "By Petter Vold", metaLong: "Exploration desk · 12 Jul 2026",
+    lead: "The unused strands inside decades-old communication cables are being repurposed to listen for the faintest movements of the crust.",
+    body: [
+      "Beneath cities and along seabeds lies a hidden inheritance: optical fibre laid down for phones and the internet, much of it never switched on. Engineers call these unused strands dark fibre, and researchers are now borrowing them to sense the ground itself.",
+      "The trick is the same distributed sensing that lights up the ocean floor \u2014 a laser reading tiny strains along the glass \u2014 but here it rides infrastructure that already exists. Instrumenting a fault the old way means burying seismometers one by one; with dark fibre the sensor network is effectively already in the ground.",
+      "Early trials have caught tremors too small for the regional seismic network to notice, hinting at a denser, cheaper picture of where the crust is quietly straining beneath populated areas.",
+      "It is not free of complications. The cable only senses motion along its length, coupling to the ground varies, and busy urban environments are noisy. Privacy and data-ownership questions also arise the moment a live telecom line becomes a scientific instrument."
+    ],
+    quote: "The most powerful sensor network we have may be the one we already buried.",
+    quoteBy: "\u2014 Exploration geophysicist",
+    tail: [
+      "If the approach scales, whole regions could gain earthquake monitoring almost as a side effect of the cables already running under their streets."
+    ],
+    tags: ["Dark fibre", "Exploration", "DAS"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Optic%20fiber%20cables%2001.jpg", credit: "Photo: fibre-optic telecom cables \u2014 Wikimedia Commons (CC BY-SA 4.0)",
+    sourceLabel: "ScienceDirect \u00b7 Earth sciences",
+    sourceUrl: "https://www.sciencedirect.com/browse/journals-and-books?subject=earth-and-planetary-sciences"
+  },
+  {
+    id: "picker", cat: "ML", kicker: "AI & ML", img: "PHASE-PICK WAVEFORM",
+    title: "Teaching Machines to Spot an Earthquake in the Noise",
+    meta: "SEISMOL. RES. LETT. · 16 JUL 2026", byline: "By Kari Aune", metaLong: "AI desk · 16 Jul 2026",
+    lead: "Deep-learning models now flag the first faint arrival of a seismic wave faster \u2014 and often more reliably \u2014 than the human analysts who trained them.",
+    body: [
+      "The oldest job in a seismology lab is phase picking: marking the exact instant a wave reaches a sensor. Do it well and you can locate a quake to within a kilometre; do it late and the whole solution drifts.",
+      "Trained on millions of hand-labelled arrivals, neural networks now make those picks in milliseconds. Crucially, they keep their footing in the noisy urban records where classic trigger algorithms stumble, distinguishing a real arrival from a passing truck or a slammed door.",
+      "The payoff is scale. Catalogues that once took weeks to assemble by hand now update in near real time, and the models routinely reveal swarms of tiny events that were previously lost in the background hum \u2014 a richer picture of how faults actually behave between big ruptures.",
+      "Researchers are careful about trust, though. A model is only as good as the data it learned from, and one trained on one region can quietly misjudge another, so uncertainty estimates and human review remain part of the loop."
+    ],
+    quote: "The model doesn't get tired at three in the morning during an aftershock sequence.",
+    quoteBy: "\u2014 Machine-learning seismologist",
+    tail: [
+      "Faster, denser catalogues feed directly into earthquake early-warning systems, where every second of lead time counts."
+    ],
+    tags: ["Deep learning", "Phase picking", "Early warning"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Seismogram.gif", credit: "Image: seismogram, P- and S-waves \u2014 Wikimedia Commons",
+    sourceLabel: "Seismological Research Letters (SSA)",
+    sourceUrl: "https://pubs.geoscienceworld.org/ssa/srl"
+  },
+  {
+    id: "denoise", cat: "ML", kicker: "AI & ML", img: "SEISMIC DENOISE",
+    title: "Denoising the Subsurface: AI Sharpens Seismic Images in Seconds",
+    meta: "GEOPHYSICS · 13 JUL 2026", byline: "By Tobias R\u00e9", metaLong: "AI desk · 13 Jul 2026",
+    lead: "Generative models trained on clean synthetic data are stripping noise from field surveys, revealing faults that conventional processing smeared away.",
+    body: [
+      "Raw seismic data is a mess of echoes, surface waves, swell and instrument chatter. Turning it into a clean image of the rock below has always been a slow craft of filters tuned by hand for each survey.",
+      "Machine-learning models take a different route. Trained to recognise what clean geology should look like, they learn to separate coherent structure from noise and can apply that judgement in seconds rather than days.",
+      "The advance that made this practical was generalisation: models that hold up on surveys they were never shown, across different instruments and geological settings. That portability had long been the sticking point for the field.",
+      "The community is cautious for good reason. A model that hallucinates a fault that is not there is worse than no model at all, so much of the current work centres on uncertainty \u2014 knowing when the machine is confident and when it is merely guessing."
+    ],
+    quote: "We stopped tuning filters and started teaching the model what rock looks like.",
+    quoteBy: "\u2014 Processing geophysicist",
+    tail: [
+      "Cleaner images earlier in the workflow ripple through everything downstream, from imaging reservoirs to monitoring stored carbon."
+    ],
+    tags: ["Generative models", "Denoising", "Imaging"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Seismogram%20on%20historical%20seismometer%20at%20Institute%20of%20Geophysis%20of%20the%20Czech%20Academy%20of%20Science%20%289%29.jpg", credit: "Photo: seismogram record \u2014 Wikimedia Commons (CC BY-SA 4.0)",
+    sourceLabel: "Geophysics (SEG)",
+    sourceUrl: "https://library.seg.org/journal/gpysa7"
+  },
+  {
+    id: "winds", cat: "ML", kicker: "AI & ML", img: "INFRASOUND MODEL",
+    title: "A Neural Net That Reads High-Altitude Winds From Ocean Sound",
+    meta: "JGR · 10 JUL 2026", byline: "By Selma Dahl", metaLong: "AI desk · 10 Jul 2026",
+    lead: "By learning the acoustic fingerprint of ocean waves, a model can infer winds tens of kilometres up \u2014 where few instruments ever reach.",
+    body: [
+      "Ocean swells generate a constant, low hum of infrasound that ripples up through the atmosphere. It is a faint, ever-present background signal that arrays around the world record without even trying.",
+      "How that hum is bent and delayed on its way up encodes the winds and temperatures it passed through. A machine-learning model trained on years of array recordings learns to run that relationship backwards, estimating stratospheric winds from the sound alone.",
+      "Those winds are otherwise hard to measure. Weather balloons rarely sample that altitude continuously, and satellites see it only indirectly, so a cheap, always-on acoustic estimate is genuinely useful to atmospheric science.",
+      "There is a neat feedback loop, too. Better wind estimates sharpen the very models that infrasound monitoring relies on to trace distant explosions and volcanic eruptions back to their sources."
+    ],
+    quote: "The sound of the sea, it turns out, carries a weather report from the edge of space.",
+    quoteBy: "\u2014 Atmospheric acoustics researcher",
+    tail: [
+      "The same balloon-and-array thinking is being eyed for other planets, where floating sensors might one day listen for quakes on worlds too hostile for ground instruments."
+    ],
+    tags: ["Infrasound", "Neural networks", "Atmosphere"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Big%20ocean%20surf%20wave%20%28Unsplash%29.jpg", credit: "Photo: ocean surf \u2014 Unsplash / Wikimedia Commons",
+    sourceLabel: "Acoustical Society of America",
+    sourceUrl: "https://acoustics.org/tag/infrasound/"
+  },
+  {
+    id: "mantle", cat: "Marine", kicker: "MARINE GEOPHYSICS", img: "MANTLE TOMOGRAPHY",
+    title: "Mapping the Mantle's Plumbing Under the Norwegian Sea",
+    meta: "RESEARCHGATE · 9 JUL 2026", byline: "By Ingrid Fossum", metaLong: "Marine desk · 9 Jul 2026",
+    lead: "Seismic tomography is revealing channels of warm rock rising beneath the Norwegian margin \u2014 the slow circulation that shapes a continent's edge.",
+    body: [
+      "By timing how earthquake waves from around the world speed up or slow down as they cross the deep Earth, geophysicists build a blurry CT scan of the mantle. Regions where waves run slow tend to be warmer and softer; fast regions, cooler and stiffer.",
+      "Assemble enough crossing ray paths and those contrasts sharpen into structure. Under the Norwegian Sea the scans show fingers of buoyant, warmer material \u2014 hints of the heat escaping the deep Earth that helped pry this margin open in the first place.",
+      "The seabed, in this view, is just the lid. The story that matters plays out far below it, in the slow convection that decides where a continent stretches, thins and eventually tears.",
+      "Refining these images helps answer a long-standing puzzle: why some passive margins stay quiet for tens of millions of years while others crack, rift and give birth to entirely new oceans."
+    ],
+    quote: "The seabed is the lid; the real story is the circulation underneath it.",
+    quoteBy: "\u2014 Tomography lead",
+    tail: [
+      "Denser ocean-bottom recordings \u2014 increasingly gathered on fibre \u2014 promise to bring the deep picture into far sharper focus."
+    ],
+    tags: ["Tomography", "Mantle", "Rifting"],
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Earth%20cutaway%20schematic%20numbered%20%28green%29.svg", credit: "Diagram: Earth internal structure \u2014 Wikimedia Commons (CC0)",
+    sourceLabel: "ResearchGate \u00b7 Author preprints",
+    sourceUrl: "https://www.researchgate.net"
+  }
+];
+const CAT_NAMES = { Seismic: "Seismic", Marine: "Marine", Tectonics: "Tectonics", Energy: "Energy", ML: "AI & ML" };
+const QUAKES_WORLD = [
+  { mag: "6.8", place: "Off the coast, Kermadec Islands", meta: "04:12 UTC · 33 km deep · New Zealand" },
+  { mag: "6.2", place: "Southern Sumatra", meta: "09:47 UTC · 24 km deep · Indonesia" },
+  { mag: "5.9", place: "Hokkaido region", meta: "11:20 UTC · 55 km deep · Japan" },
+  { mag: "5.6", place: "Atacama", meta: "02:05 UTC · 41 km deep · Chile" },
+  { mag: "5.4", place: "Aegean Sea", meta: "13:38 UTC · 12 km deep · Greece" }
+];
+const QUAKES_NORWAY = [
+  { mag: "3.1", place: "Nordland, off Bodø", meta: "06:22 UTC · 15 km deep · Norwegian Sea" },
+  { mag: "2.4", place: "Svalbard region", meta: "08:51 UTC · 10 km deep · Arctic" },
+  { mag: "1.9", place: "North Sea, near Sleipner", meta: "12:14 UTC · 8 km deep · induced" }
+];
+const THEMES = {
+  "Warm Print":  { bg:"#f6f2e9", ink:"#231f1a", muted:"#a39a8b", muted2:"#5f5a52", body:"#2b2721", line:"#e2dac9", surface:"#ece4d4", surfaceText:"#3d3833", avatar:"#e9e1d0", stripeA:"#eae2d2", stripeB:"#ded3bd", onAccent:"#f6f2e9", label:"#8a7a5f", chipBg:"rgba(246,242,233,0.8)" },
+  "Paper White": { bg:"#ffffff", ink:"#111111", muted:"#9a9a9a", muted2:"#5a5a5a", body:"#1c1c1c", line:"#ededed", surface:"#f2f2f2", surfaceText:"#333333", avatar:"#eeeeee", stripeA:"#f0f0f0", stripeB:"#e4e4e4", onAccent:"#ffffff", label:"#9a9a9a", chipBg:"rgba(255,255,255,0.82)" },
+  "Deep Night":  { bg:"#0d1524", ink:"#e8edf5", muted:"#6d7c96", muted2:"#93a0b8", body:"#cdd6e6", line:"rgba(255,255,255,0.09)", surface:"#1a2740", surfaceText:"#cdd6e6", avatar:"#1a2740", stripeA:"#16213a", stripeB:"#1c2946", onAccent:"#ffffff", label:"#93a0b8", chipBg:"rgba(13,21,36,0.75)" }
+};
+
+class Component extends DCLogic {
+  state = { screen: "home", articleId: null, category: null, prev: "home", query: "", savedIds: [], folders: [], assign: {}, moveTarget: null, folderId: null, quakesWorld: QUAKES_WORLD, quakesNorway: QUAKES_NORWAY, quakeLive: false, quakeUpdated: "", articles: STORIES };
+
+  componentDidMount() { this.loadArticles(); this.loadQuakes(); }
+  async loadArticles() {
+    try {
+      const r = await fetch("./articles.json", { cache: "no-store" });
+      const j = await r.json();
+      const list = (j.articles || []).filter(a => !a.needsReview && a.status !== "draft")
+        .sort((a, b) => String(b.published || "").localeCompare(String(a.published || "")));
+      if (list.length) this.setState({ articles: list });
+    } catch (e) { /* keep built-in fallback */ }
+  }
+  async loadQuakes() {
+    const pad = n => String(n).padStart(2, "0");
+    const hhmm = d => pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes());
+    const title = s => (s || "").toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    try {
+      const wr = await fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson");
+      const wj = await wr.json();
+      const world = wj.features.filter(f => f.properties.mag != null)
+        .sort((a, b) => b.properties.mag - a.properties.mag).slice(0, 5).map(f => {
+          const d = new Date(f.properties.time), dep = Math.round(f.geometry.coordinates[2]);
+          return { mag: f.properties.mag.toFixed(1), place: f.properties.place || "Unknown", meta: hhmm(d) + " UTC \u00b7 " + dep + " km deep" };
+        });
+      const start = new Date(Date.now() - 14 * 86400000).toISOString().slice(0, 10);
+      const nr = await fetch("https://www.seismicportal.eu/fdsnws/event/1/query?format=json&start=" + start + "&minlat=55&maxlat=82&minlon=-5&maxlon=35&orderby=magnitude&limit=3");
+      const nt = await nr.text();
+      let norway = [];
+      if (nt.trim()) {
+        const nj = JSON.parse(nt);
+        norway = (nj.features || []).map(f => {
+          const p = f.properties, d = new Date(p.time), dep = Math.round(Math.abs(p.depth));
+          const day = d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", timeZone: "UTC" });
+          return { mag: Number(p.mag).toFixed(1), place: title(p.flynn_region) || "Nordic region", meta: hhmm(d) + " UTC \u00b7 " + dep + " km deep \u00b7 " + day };
+        });
+      }
+      this.setState({ quakesWorld: world.length ? world : QUAKES_WORLD, quakesNorway: norway.length ? norway : QUAKES_NORWAY, quakeLive: true, quakeUpdated: hhmm(new Date()) });
+    } catch (e) { this.setState({ quakeLive: false }); }
+  }
+
+  _open(id) { this.setState({ prev: this.state.screen, screen: "article", articleId: id }); }
+  _cat(c) { this.setState({ screen: "category", category: c }); }
+  _home() { this.setState({ screen: "home" }); }
+  _back() { this.setState({ screen: this.state.prev || "home" }); }
+  decorate(s) {
+    const ph = "repeating-linear-gradient(45deg,var(--stripeA) 0 11px,var(--stripeB) 11px 22px)";
+    const bg = s.image ? ('url("' + s.image + '") center/cover no-repeat') : ph;
+    return { ...s, bg, open: () => this._open(s.id) };
+  }
+
+  toggleSave(id) {
+    const saved = [...this.state.savedIds];
+    const assign = { ...this.state.assign };
+    const i = saved.indexOf(id);
+    if (i >= 0) { saved.splice(i, 1); delete assign[id]; }
+    else { saved.push(id); }
+    this.setState({ savedIds: saved, assign });
+  }
+  assignTo(id, fid) {
+    const assign = { ...this.state.assign };
+    if (fid) assign[id] = fid; else delete assign[id];
+    this.setState({ assign, moveTarget: null });
+  }
+  makeFolder() {
+    const name = (window.prompt("Folder name") || "").trim();
+    if (!name) return null;
+    const f = { id: "f" + Date.now(), name };
+    this.setState({ folders: [...this.state.folders, f] });
+    return f;
+  }
+  newFolderAndMove() {
+    const f = this.makeFolder();
+    const t = this.state.moveTarget;
+    if (f && t) this.assignTo(t, f.id);
+  }
+
+  renderVals() {
+    const screen = this.state.screen;
+    const t = THEMES[this.props.theme] || THEMES["Warm Print"];
+    const accent = this.props.accent || "#9e2a2b";
+    const isSerif = (this.props.headline || "Bold Grotesk") === "Editorial Serif";
+    const hFont = isSerif ? "'Newsreader',serif" : "'Archivo',sans-serif";
+    const hWeight = isSerif ? 600 : 800;
+    const themeVars = `--bg:${t.bg};--ink:${t.ink};--muted:${t.muted};--muted2:${t.muted2};--body:${t.body};--line:${t.line};--surface:${t.surface};--surfaceText:${t.surfaceText};--avatar:${t.avatar};--stripeA:${t.stripeA};--stripeB:${t.stripeB};--accent:${accent};--onAccent:${t.onAccent};--label:${t.label};--chipBg:${t.chipBg};--hFont:${hFont};--hWeight:${hWeight};`;
+
+    const ALL = (this.state.articles && this.state.articles.length) ? this.state.articles : STORIES;
+    const list = ALL.map(s => this.decorate(s));
+    const catCount = (c) => { const n = ALL.filter(s => s.cat === c).length; return n + (n === 1 ? " story" : " stories"); };
+    const catStories = list.filter(s => s.cat === this.state.category);
+    const article = this.decorate(ALL.find(s => s.id === this.state.articleId) || ALL[0]);
+    const savedIds = this.state.savedIds;
+    const assign = this.state.assign;
+    const folders = this.state.folders;
+    const byId = (id) => this.decorate(ALL.find(s => s.id === id));
+    const savedLoose = savedIds.filter(id => !assign[id]).map(id => {
+      const a = byId(id);
+      return { ...a, move: () => this.setState({ moveTarget: id }), unsave: () => this.toggleSave(id) };
+    });
+    const foldersView = folders.map(f => {
+      const ids = savedIds.filter(id => assign[id] === f.id);
+      return { id: f.id, name: f.name, count: ids.length + (ids.length === 1 ? " article" : " articles"), open: () => this.setState({ screen: "folder", folderId: f.id }) };
+    });
+    const curFolder = folders.find(f => f.id === this.state.folderId);
+    const folderArticles = curFolder ? savedIds.filter(id => assign[id] === curFolder.id).map(id => {
+      const a = byId(id);
+      return { ...a, removeFromFolder: () => this.assignTo(id, null), unsave: () => this.toggleSave(id) };
+    }) : [];
+    const isSavedArticle = savedIds.includes(article.id);
+    const q = (this.state.query || "").trim().toLowerCase();
+    const haystack = (s) => [s.title, s.kicker, s.lead, s.meta, CAT_NAMES[s.cat], (s.tags || []).join(" "), (s.body || []).join(" "), (s.tail || []).join(" ")].join(" ").toLowerCase();
+    const results = q ? list.filter(s => haystack(s).includes(q)) : [];
+    return {
+      themeVars,
+      isHome: screen === "home",
+      isCategory: screen === "category",
+      isArticle: screen === "article",
+      isQuakes: screen === "quakes",
+      isTopics: screen === "topics",
+      topics: [
+        { label: "Newest Quakes", desc: "Live global & Norwegian seismicity", count: "8 signals", open: () => this.setState({ screen: "quakes" }) },
+        { label: "Seismic", desc: "Earthquakes, arrays & monitoring", count: catCount("Seismic"), open: () => this._cat("Seismic") },
+        { label: "Marine", desc: "Ocean-floor & subsea geophysics", count: catCount("Marine"), open: () => this._cat("Marine") },
+        { label: "Tectonics", desc: "Plate motion & crustal change", count: catCount("Tectonics"), open: () => this._cat("Tectonics") },
+        { label: "Energy", desc: "Storage, exploration & the subsurface", count: catCount("Energy"), open: () => this._cat("Energy") },
+        { label: "AI & ML", desc: "Machine learning in geophysics", count: catCount("ML"), open: () => this._cat("ML") }
+      ],
+      quakesWorld: this.state.quakesWorld,
+      quakesNorway: this.state.quakesNorway,
+      quakeSubtitle: this.state.quakeLive ? ("LIVE \u00b7 UPDATED " + this.state.quakeUpdated + " UTC") : "SAMPLE DATA \u00b7 CONNECTING\u2026",
+      openQuakes: () => this.setState({ screen: "quakes" }),
+      hero: { ...list[0] },
+      openHero: () => this._open(ALL[0].id),
+      rest: list.slice(1),
+      catStories,
+      catName: CAT_NAMES[this.state.category] || "Topics",
+      catCount: String(catStories.length).padStart(2, "0"),
+      article: article,
+      articleHasCredit: !!article.credit,
+      articleSaved: isSavedArticle,
+      saveLabel: isSavedArticle ? "SAVED" : "SAVE",
+      saveColor: isSavedArticle ? "var(--accent)" : "var(--muted)",
+      toggleSaveArticle: () => this.toggleSave(article.id),
+      isSaved: screen === "saved",
+      isFolder: screen === "folder",
+      openSaved: () => this.setState({ screen: "saved" }),
+      savedLoose,
+      foldersView,
+      hasFolders: folders.length > 0,
+      hasLoose: savedLoose.length > 0,
+      noSaved: savedIds.length === 0,
+      newFolder: () => this.makeFolder(),
+      curFolderName: curFolder ? curFolder.name : "Folder",
+      folderCount: folderArticles.length + (folderArticles.length === 1 ? " article" : " articles"),
+      folderArticles,
+      goSaved: () => this.setState({ screen: "saved" }),
+      showMove: this.state.moveTarget != null,
+      moveFolders: folders.map(f => ({ name: f.name, pick: () => this.assignTo(this.state.moveTarget, f.id) })),
+      moveHasFolders: folders.length > 0,
+      keepLoose: () => this.assignTo(this.state.moveTarget, null),
+      newFolderMove: () => this.newFolderAndMove(),
+      cancelMove: () => this.setState({ moveTarget: null }),
+      goHome: () => this._home(),
+      goBack: () => this._back(),
+      openTopics: () => this.setState({ screen: "topics" }),
+      openSearch: () => this.setState({ screen: "search" }),
+      isSearch: screen === "search",
+      query: this.state.query || "",
+      onSearch: (e) => this.setState({ query: e.target.value }),
+      results,
+      resultCount: results.length + (results.length === 1 ? " RESULT" : " RESULTS"),
+      hasResults: q.length > 0 && results.length > 0,
+      noResults: q.length > 0 && results.length === 0,
+      noQuery: q.length === 0,
+      suggestions: ["Seismic", "CO₂ storage", "Infrasound", "Ocean", "Machine learning", "Sleipner"].map(w => ({ label: w, pick: () => this.setState({ query: w }) })),
+      openSeismic: () => this._cat("Seismic"),
+      openMarine: () => this._cat("Marine"),
+      openTectonics: () => this._cat("Tectonics"),
+      openEnergy: () => this._cat("Energy"),
+      openML: () => this._cat("ML"),
+      homeColor: screen === "home" ? "var(--accent)" : "var(--muted)",
+      topicsColor: (screen === "topics" || screen === "category" || screen === "quakes") ? "var(--accent)" : "var(--muted)",
+      searchColor: screen === "search" ? "var(--accent)" : "var(--muted)",
+      savedColor: (screen === "saved" || screen === "folder") ? "var(--accent)" : "var(--muted)"
+    };
+  }
+}
+</script>
+</body>
+</html>
