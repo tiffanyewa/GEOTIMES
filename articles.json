@@ -1,8 +1,58 @@
 {
   "publication": "The New Geo Times",
-  "generatedAt": "2026-08-28T16:58:24.441Z",
+  "generatedAt": "2026-08-30T10:09:53.900Z",
   "note": "Daily job appends new items (newest 'published' date first). The app shows all, newest first; if a day has few new items, previous ones remain and backfill the feed.",
   "articles": [
+    {
+      "id": "10-1029-2025jb033462",
+      "doi": "10.1029/2025jb033462",
+      "cat": "Tectonics",
+      "kicker": "TECTONICS",
+      "img": "TECTONICS",
+      "title": "GIA‐Induced Mantle Circulation and Surface Horizontal Motions in North America: Effects of 3D Laterally Varying Elastic Thickness and Viscosity",
+      "source": "Journal of Geophysical Research Solid Earth",
+      "meta": "JOURNAL OF GEOPHYSICAL RESEARCH SOLID EARTH · 30 AUG 2026",
+      "byline": "By Kaixuan Kang",
+      "metaLong": "Journal of Geophysical Research Solid Earth · 2026-08-30",
+      "published": "2026-08-30",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "Journal of Geophysical Research Solid Earth (open access)",
+      "sourceUrl": "https://doi.org/10.1029/2025jb033462",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
+    {
+      "id": "10-1038-s41598-026-68052-1",
+      "doi": "10.1038/s41598-026-68052-1",
+      "cat": "ML",
+      "kicker": "AI & ML",
+      "img": "ML",
+      "title": "Extended elastic impedance inversion for enhanced reservoir characterization in the Galhak Oil Formation of the Rawat Basin Sudan",
+      "source": "Scientific Reports",
+      "meta": "SCIENTIFIC REPORTS · 30 AUG 2026",
+      "byline": "By Hatim Quer",
+      "metaLong": "Scientific Reports · 2026-08-30",
+      "published": "2026-08-30",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "Scientific Reports (open access)",
+      "sourceUrl": "https://doi.org/10.1038/s41598-026-68052-1",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
     {
       "id": "10-1111-1365-2478-70248",
       "doi": "10.1111/1365-2478.70248",
@@ -1502,70 +1552,6 @@
       "sourceLabel": "Geophysics (SEG)",
       "sourceUrl": "https://library.seg.org/journal/gpysa7",
       "published": "2026-07-13"
-    },
-    {
-      "id": "winds",
-      "cat": "ML",
-      "kicker": "AI & ML",
-      "img": "INFRASOUND MODEL",
-      "title": "A Neural Net That Reads High-Altitude Winds From Ocean Sound",
-      "meta": "JGR · 10 JUL 2026",
-      "byline": "By Selma Dahl",
-      "metaLong": "AI desk · 10 Jul 2026",
-      "lead": "By learning the acoustic fingerprint of ocean waves, a model can infer winds tens of kilometres up — where few instruments ever reach.",
-      "body": [
-        "Ocean swells generate a constant, low hum of infrasound that ripples up through the atmosphere. It is a faint, ever-present background signal that arrays around the world record without even trying.",
-        "How that hum is bent and delayed on its way up encodes the winds and temperatures it passed through. A machine-learning model trained on years of array recordings learns to run that relationship backwards, estimating stratospheric winds from the sound alone.",
-        "Those winds are otherwise hard to measure. Weather balloons rarely sample that altitude continuously, and satellites see it only indirectly, so a cheap, always-on acoustic estimate is genuinely useful to atmospheric science.",
-        "There is a neat feedback loop, too. Better wind estimates sharpen the very models that infrasound monitoring relies on to trace distant explosions and volcanic eruptions back to their sources."
-      ],
-      "quote": "The sound of the sea, it turns out, carries a weather report from the edge of space.",
-      "quoteBy": "— Atmospheric acoustics researcher",
-      "tail": [
-        "The same balloon-and-array thinking is being eyed for other planets, where floating sensors might one day listen for quakes on worlds too hostile for ground instruments."
-      ],
-      "tags": [
-        "Infrasound",
-        "Neural networks",
-        "Atmosphere"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Big%20ocean%20surf%20wave%20%28Unsplash%29.jpg",
-      "credit": "Photo: ocean surf — Unsplash / Wikimedia Commons",
-      "sourceLabel": "Acoustical Society of America",
-      "sourceUrl": "https://acoustics.org/tag/infrasound/",
-      "published": "2026-07-10"
-    },
-    {
-      "id": "mantle",
-      "cat": "Marine",
-      "kicker": "MARINE GEOPHYSICS",
-      "img": "MANTLE TOMOGRAPHY",
-      "title": "Mapping the Mantle's Plumbing Under the Norwegian Sea",
-      "meta": "RESEARCHGATE · 9 JUL 2026",
-      "byline": "By Ingrid Fossum",
-      "metaLong": "Marine desk · 9 Jul 2026",
-      "lead": "Seismic tomography is revealing channels of warm rock rising beneath the Norwegian margin — the slow circulation that shapes a continent's edge.",
-      "body": [
-        "By timing how earthquake waves from around the world speed up or slow down as they cross the deep Earth, geophysicists build a blurry CT scan of the mantle. Regions where waves run slow tend to be warmer and softer; fast regions, cooler and stiffer.",
-        "Assemble enough crossing ray paths and those contrasts sharpen into structure. Under the Norwegian Sea the scans show fingers of buoyant, warmer material — hints of the heat escaping the deep Earth that helped pry this margin open in the first place.",
-        "The seabed, in this view, is just the lid. The story that matters plays out far below it, in the slow convection that decides where a continent stretches, thins and eventually tears.",
-        "Refining these images helps answer a long-standing puzzle: why some passive margins stay quiet for tens of millions of years while others crack, rift and give birth to entirely new oceans."
-      ],
-      "quote": "The seabed is the lid; the real story is the circulation underneath it.",
-      "quoteBy": "— Tomography lead",
-      "tail": [
-        "Denser ocean-bottom recordings — increasingly gathered on fibre — promise to bring the deep picture into far sharper focus."
-      ],
-      "tags": [
-        "Tomography",
-        "Mantle",
-        "Rifting"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Earth%20cutaway%20schematic%20numbered%20%28green%29.svg",
-      "credit": "Diagram: Earth internal structure — Wikimedia Commons (CC0)",
-      "sourceLabel": "ResearchGate · Author preprints",
-      "sourceUrl": "https://www.researchgate.net",
-      "published": "2026-07-09"
     }
   ]
 }
