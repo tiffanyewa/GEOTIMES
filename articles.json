@@ -1,8 +1,58 @@
 {
   "publication": "The New Geo Times",
-  "generatedAt": "2026-08-30T10:09:53.900Z",
+  "generatedAt": "2026-08-31T11:12:21.898Z",
   "note": "Daily job appends new items (newest 'published' date first). The app shows all, newest first; if a day has few new items, previous ones remain and backfill the feed.",
   "articles": [
+    {
+      "id": "10-1130-g55209-1",
+      "doi": "10.1130/g55209.1",
+      "cat": "Tectonics",
+      "kicker": "TECTONICS",
+      "img": "TECTONICS",
+      "title": "The world’s highest late Middle-Pleistocene marine deposits on the southern margin of the Central Anatolian Plateau (southern Türkiye)",
+      "source": "Geology",
+      "meta": "GEOLOGY · 31 AUG 2026",
+      "byline": "By Selma Sarı",
+      "metaLong": "Geology · 2026-08-31",
+      "published": "2026-08-31",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "Geology (open access)",
+      "sourceUrl": "https://hdl.handle.net/11590/555576",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
+    {
+      "id": "10-1093-gji-ggag352",
+      "doi": "10.1093/gji/ggag352",
+      "cat": "ML",
+      "kicker": "AI & ML",
+      "img": "ML",
+      "title": "Cross-scale Data-Driven Heat Flow Prediction in the Ordos Basin and Adjacent Areas: An XGBoost Model with SHAP Interpretability",
+      "source": "Geophysical Journal International",
+      "meta": "GEOPHYSICAL JOURNAL INTERNATIONAL · 31 AUG 2026",
+      "byline": "By Yuanjin Sun",
+      "metaLong": "Geophysical Journal International · 2026-08-31",
+      "published": "2026-08-31",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "Geophysical Journal International (open access)",
+      "sourceUrl": "https://doi.org/10.1093/gji/ggag352",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
     {
       "id": "10-1029-2025jb033462",
       "doi": "10.1029/2025jb033462",
@@ -1488,70 +1538,6 @@
       "sourceLabel": "ScienceDirect · Earth sciences",
       "sourceUrl": "https://www.sciencedirect.com/browse/journals-and-books?subject=earth-and-planetary-sciences",
       "published": "2026-07-12"
-    },
-    {
-      "id": "picker",
-      "cat": "ML",
-      "kicker": "AI & ML",
-      "img": "PHASE-PICK WAVEFORM",
-      "title": "Teaching Machines to Spot an Earthquake in the Noise",
-      "meta": "SEISMOL. RES. LETT. · 16 JUL 2026",
-      "byline": "By Kari Aune",
-      "metaLong": "AI desk · 16 Jul 2026",
-      "lead": "Deep-learning models now flag the first faint arrival of a seismic wave faster — and often more reliably — than the human analysts who trained them.",
-      "body": [
-        "The oldest job in a seismology lab is phase picking: marking the exact instant a wave reaches a sensor. Do it well and you can locate a quake to within a kilometre; do it late and the whole solution drifts.",
-        "Trained on millions of hand-labelled arrivals, neural networks now make those picks in milliseconds. Crucially, they keep their footing in the noisy urban records where classic trigger algorithms stumble, distinguishing a real arrival from a passing truck or a slammed door.",
-        "The payoff is scale. Catalogues that once took weeks to assemble by hand now update in near real time, and the models routinely reveal swarms of tiny events that were previously lost in the background hum — a richer picture of how faults actually behave between big ruptures.",
-        "Researchers are careful about trust, though. A model is only as good as the data it learned from, and one trained on one region can quietly misjudge another, so uncertainty estimates and human review remain part of the loop."
-      ],
-      "quote": "The model doesn't get tired at three in the morning during an aftershock sequence.",
-      "quoteBy": "— Machine-learning seismologist",
-      "tail": [
-        "Faster, denser catalogues feed directly into earthquake early-warning systems, where every second of lead time counts."
-      ],
-      "tags": [
-        "Deep learning",
-        "Phase picking",
-        "Early warning"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Seismogram.gif",
-      "credit": "Image: seismogram, P- and S-waves — Wikimedia Commons",
-      "sourceLabel": "Seismological Research Letters (SSA)",
-      "sourceUrl": "https://pubs.geoscienceworld.org/ssa/srl",
-      "published": "2026-07-16"
-    },
-    {
-      "id": "denoise",
-      "cat": "ML",
-      "kicker": "AI & ML",
-      "img": "SEISMIC DENOISE",
-      "title": "Denoising the Subsurface: AI Sharpens Seismic Images in Seconds",
-      "meta": "GEOPHYSICS · 13 JUL 2026",
-      "byline": "By Tobias Ré",
-      "metaLong": "AI desk · 13 Jul 2026",
-      "lead": "Generative models trained on clean synthetic data are stripping noise from field surveys, revealing faults that conventional processing smeared away.",
-      "body": [
-        "Raw seismic data is a mess of echoes, surface waves, swell and instrument chatter. Turning it into a clean image of the rock below has always been a slow craft of filters tuned by hand for each survey.",
-        "Machine-learning models take a different route. Trained to recognise what clean geology should look like, they learn to separate coherent structure from noise and can apply that judgement in seconds rather than days.",
-        "The advance that made this practical was generalisation: models that hold up on surveys they were never shown, across different instruments and geological settings. That portability had long been the sticking point for the field.",
-        "The community is cautious for good reason. A model that hallucinates a fault that is not there is worse than no model at all, so much of the current work centres on uncertainty — knowing when the machine is confident and when it is merely guessing."
-      ],
-      "quote": "We stopped tuning filters and started teaching the model what rock looks like.",
-      "quoteBy": "— Processing geophysicist",
-      "tail": [
-        "Cleaner images earlier in the workflow ripple through everything downstream, from imaging reservoirs to monitoring stored carbon."
-      ],
-      "tags": [
-        "Generative models",
-        "Denoising",
-        "Imaging"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Seismogram%20on%20historical%20seismometer%20at%20Institute%20of%20Geophysis%20of%20the%20Czech%20Academy%20of%20Science%20%289%29.jpg",
-      "credit": "Photo: seismogram record — Wikimedia Commons (CC BY-SA 4.0)",
-      "sourceLabel": "Geophysics (SEG)",
-      "sourceUrl": "https://library.seg.org/journal/gpysa7",
-      "published": "2026-07-13"
     }
   ]
 }
