@@ -1,8 +1,33 @@
 {
   "publication": "The New Geo Times",
-  "generatedAt": "2026-08-31T11:12:21.898Z",
+  "generatedAt": "2026-09-02T09:09:38.587Z",
   "note": "Daily job appends new items (newest 'published' date first). The app shows all, newest first; if a day has few new items, previous ones remain and backfill the feed.",
   "articles": [
+    {
+      "id": "10-21009-spektra-112-04",
+      "doi": "10.21009/spektra.112.04",
+      "cat": "ML",
+      "kicker": "AI & ML",
+      "img": "ML",
+      "title": "Edge Seismic Denoising: Benchmarking the Hailo-8L on Raspberry Pi 5",
+      "source": "SPEKTRA Jurnal Fisika dan Aplikasinya",
+      "meta": "SPEKTRA JURNAL FISIKA DAN APLIKASINYA · 2 SEP 2026",
+      "byline": "By Antonia Indriyani Juniar",
+      "metaLong": "SPEKTRA Jurnal Fisika dan Aplikasinya · 2026-09-02",
+      "published": "2026-09-02",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "SPEKTRA Jurnal Fisika dan Aplikasinya (open access)",
+      "sourceUrl": "https://doi.org/10.21009/spektra.112.04",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
     {
       "id": "10-1130-g55209-1",
       "doi": "10.1130/g55209.1",
@@ -1506,38 +1531,6 @@
       "sourceLabel": "Geophysical Journal International (Oxford Academic)",
       "sourceUrl": "https://academic.oup.com/gji",
       "published": "2026-07-14"
-    },
-    {
-      "id": "cables",
-      "cat": "Energy",
-      "kicker": "EXPLORATION",
-      "img": "DAS CABLE",
-      "title": "Old Telecom Cables Are Becoming Earthquake Sensors",
-      "meta": "SCIENCEDIRECT · 12 JUL 2026",
-      "byline": "By Petter Vold",
-      "metaLong": "Exploration desk · 12 Jul 2026",
-      "lead": "The unused strands inside decades-old communication cables are being repurposed to listen for the faintest movements of the crust.",
-      "body": [
-        "Beneath cities and along seabeds lies a hidden inheritance: optical fibre laid down for phones and the internet, much of it never switched on. Engineers call these unused strands dark fibre, and researchers are now borrowing them to sense the ground itself.",
-        "The trick is the same distributed sensing that lights up the ocean floor — a laser reading tiny strains along the glass — but here it rides infrastructure that already exists. Instrumenting a fault the old way means burying seismometers one by one; with dark fibre the sensor network is effectively already in the ground.",
-        "Early trials have caught tremors too small for the regional seismic network to notice, hinting at a denser, cheaper picture of where the crust is quietly straining beneath populated areas.",
-        "It is not free of complications. The cable only senses motion along its length, coupling to the ground varies, and busy urban environments are noisy. Privacy and data-ownership questions also arise the moment a live telecom line becomes a scientific instrument."
-      ],
-      "quote": "The most powerful sensor network we have may be the one we already buried.",
-      "quoteBy": "— Exploration geophysicist",
-      "tail": [
-        "If the approach scales, whole regions could gain earthquake monitoring almost as a side effect of the cables already running under their streets."
-      ],
-      "tags": [
-        "Dark fibre",
-        "Exploration",
-        "DAS"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Optic%20fiber%20cables%2001.jpg",
-      "credit": "Photo: fibre-optic telecom cables — Wikimedia Commons (CC BY-SA 4.0)",
-      "sourceLabel": "ScienceDirect · Earth sciences",
-      "sourceUrl": "https://www.sciencedirect.com/browse/journals-and-books?subject=earth-and-planetary-sciences",
-      "published": "2026-07-12"
     }
   ]
 }
