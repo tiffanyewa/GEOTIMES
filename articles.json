@@ -1,8 +1,58 @@
 {
   "publication": "The New Geo Times",
-  "generatedAt": "2026-09-02T09:09:38.587Z",
+  "generatedAt": "2026-09-03T09:16:39.837Z",
   "note": "Daily job appends new items (newest 'published' date first). The app shows all, newest first; if a day has few new items, previous ones remain and backfill the feed.",
   "articles": [
+    {
+      "id": "10-1038-s41598-026-68757-3",
+      "doi": "10.1038/s41598-026-68757-3",
+      "cat": "ML",
+      "kicker": "AI & ML",
+      "img": "ML",
+      "title": "Impact of velocity evolution on AE event location and fracture process interpretation",
+      "source": "Scientific Reports",
+      "meta": "SCIENTIFIC REPORTS · 3 SEP 2026",
+      "byline": "By Grazia De Landro",
+      "metaLong": "Scientific Reports · 2026-09-03",
+      "published": "2026-09-03",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "Scientific Reports (open access)",
+      "sourceUrl": "https://doi.org/10.1038/s41598-026-68757-3",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
+    {
+      "id": "10-1093-jge-gxag107",
+      "doi": "10.1093/jge/gxag107",
+      "cat": "ML",
+      "kicker": "AI & ML",
+      "img": "ML",
+      "title": "New Paradigms in Seismic Imaging: Advances in Localized, Precise, and Intelligent Solutions",
+      "source": "Journal of Geophysics and Engineering",
+      "meta": "JOURNAL OF GEOPHYSICS AND ENGINEERING · 3 SEP 2026",
+      "byline": "By Yingming Qu",
+      "metaLong": "Journal of Geophysics and Engineering · 2026-09-03",
+      "published": "2026-09-03",
+      "image": "",
+      "credit": "",
+      "sourceLabel": "Journal of Geophysics and Engineering (open access)",
+      "sourceUrl": "https://doi.org/10.1093/jge/gxag107",
+      "lead": "Draft — needs an original summary before publishing.",
+      "body": [],
+      "quote": "",
+      "quoteBy": "",
+      "tail": [],
+      "tags": [],
+      "status": "draft",
+      "needsReview": true
+    },
     {
       "id": "10-21009-spektra-112-04",
       "doi": "10.21009/spektra.112.04",
@@ -1467,70 +1517,6 @@
       "sourceLabel": "Nature · Communications Earth & Environment (open access, CC-BY)",
       "sourceUrl": "https://www.nature.com/articles/s43247-023-01058-z",
       "published": "2026-07-19"
-    },
-    {
-      "id": "ocean",
-      "cat": "Marine",
-      "kicker": "MARINE GEOPHYSICS",
-      "img": "SEAFLOOR FIBER",
-      "title": "The Ocean Floor Is Now a Giant Microphone",
-      "meta": "NATURE · 17 JUL 2026",
-      "byline": "By Johanna Rist",
-      "metaLong": "Marine desk · 17 Jul 2026",
-      "lead": "By firing laser pulses down a single fibre-optic cable, researchers can turn kilometres of seabed into thousands of vibration sensors.",
-      "body": [
-        "Distributed acoustic sensing, or DAS, treats an ordinary optical fibre as a long chain of listening posts. A laser sends pulses down the glass, and tiny natural imperfections scatter a little light back. When a passing seismic wave stretches or squeezes a section of fibre, that backscatter shifts in a measurable way.",
-        "Sample the returning light fast enough and every few metres of cable becomes its own seismometer. A single fibre can suddenly stand in for thousands of instruments, at a spacing no fleet of buoys or ocean-bottom nodes could ever match.",
-        "Laid across the seabed, such a cable registers earthquakes, ocean currents, ship traffic and even the calls of passing whales — in stretches of ocean where deploying and maintaining individual instruments would be prohibitively expensive.",
-        "The method has real limits: it needs a cable in the first place, it is most sensitive to motion along the fibre, and the flood of data is enormous. But the economics are hard to argue with, especially where telecom cable already lies on the bottom."
-      ],
-      "quote": "We lit up a cable and suddenly had ten thousand seismometers on the ocean floor.",
-      "quoteBy": "— Co-author, marine geophysics group",
-      "tail": [
-        "The next step is dark fibre — unused strands in existing subsea telecom cables — which could wire long stretches of coastline for a fraction of the usual cost."
-      ],
-      "tags": [
-        "DAS",
-        "Fibre optics",
-        "Ocean"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fiber%20Optical%20Cable.jpg",
-      "credit": "Photo: fibre-optic cable — Wikimedia Commons (CC0)",
-      "sourceLabel": "Nature · Earth & environmental sciences",
-      "sourceUrl": "https://www.nature.com/subjects/seismology",
-      "published": "2026-07-17"
-    },
-    {
-      "id": "uplift",
-      "cat": "Tectonics",
-      "kicker": "TECTONICS",
-      "img": "GPS UPLIFT MAP",
-      "title": "Scandinavia Is Still Rising From the Last Ice Age",
-      "meta": "GEOPHYS. J. INT. · 14 JUL 2026",
-      "byline": "By Anders Lie",
-      "metaLong": "Tectonics desk · 14 Jul 2026",
-      "lead": "Freed from the weight of vanished glaciers, the crust beneath the Nordic countries is still springing back — by close to a centimetre a year in places.",
-      "body": [
-        "When the great ice sheets melted more than ten thousand years ago, the land they had pressed down began a slow rebound that has never stopped. Geophysicists call it glacial isostatic adjustment, and Scandinavia is its textbook example.",
-        "Networks of permanent satellite-positioning stations now measure that rise in fine detail. Around the head of the Gulf of Bothnia the land climbs fastest — on the order of a centimetre each year — tapering off toward the edges of the once-glaciated region.",
-        "The uplift quietly reshapes the map. Harbours grow shallow, new skerries break the surface, and rivers nudge their courses. In parts of the Nordic coast the land is rising faster than the sea, so the shoreline is retreating even as oceans warm.",
-        "Teasing this ancient rebound apart from modern, climate-driven sea-level rise is now essential work: it decides which stretches of coast will flood in the coming century and which will keep climbing out of the water."
-      ],
-      "quote": "The last ice age is still being written into the map, one millimetre at a time.",
-      "quoteBy": "— Geodesy researcher",
-      "tail": [
-        "The same measurements feed into everything from tide-gauge corrections to the reference frames that keep national maps and GPS in agreement."
-      ],
-      "tags": [
-        "Post-glacial rebound",
-        "Geodesy",
-        "GNSS"
-      ],
-      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Skerries%20and%20islets%20on%20Hovdanvika%20in%20Flakstad%2C%20Nordland%2C%20Norway%2C%202022%20June.jpg",
-      "credit": "Photo: skerries in Nordland, Norway — Wikimedia Commons (CC BY-SA 4.0)",
-      "sourceLabel": "Geophysical Journal International (Oxford Academic)",
-      "sourceUrl": "https://academic.oup.com/gji",
-      "published": "2026-07-14"
     }
   ]
 }
